@@ -1,0 +1,61 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Urun>
+@{
+    ViewBag.Title = "SatistaOlmayanlar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<label>@ViewBag.stokError</label>
+
+
+<table id="tbl3" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Urun Ad</th>
+            <th>Marka</th>
+            <th>Stok</th>
+            <th>Alış Fiyatı</th>
+            <th>Satış Fiyatı</th>
+            <th>Kategori</th>
+            <th>Satışa Ekle</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UrunID</td>
+                <td>@item.UrunAd</td>
+                <td>@item.Marka</td>
+                <td>@item.Stok</td>
+                <td>@item.AlisFiyati ₺</td>
+                <td>@item.SatisFiyati ₺</td>
+                <td>@item.Kategori.KategoriAd</td>
+                <td>
+                    <a class="btn btn-info" href="/Urun/SatisaEkle/@item.UrunID ">Satışa Ekle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+@*<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>*@
+@*<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>*@
+<script src="~/Web/talbes2.js"></script>
+<script src="~/Web/tables.js"></script>
+
+
+<script>
+    $('#tbl3').dataTable({});
+</script>

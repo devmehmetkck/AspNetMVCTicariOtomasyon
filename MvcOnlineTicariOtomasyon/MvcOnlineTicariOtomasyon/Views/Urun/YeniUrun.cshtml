@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Urun
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>YeniUrun</h2>
+<form class=" form form-group" method="post">
+    <label>Ürün Ad</label>
+    @Html.TextBoxFor(m => m.UrunAd, new {@class="form-control"})
+    <br />
+    
+    <label>Marka</label>
+    @Html.TextBoxFor(m => m.Marka, new {@class="form-control"})
+    <br />
+    
+    <label>Stok</label>
+    @Html.TextBoxFor(m => m.Stok, new {@class="form-control"})
+    <br />
+    
+    <label>Alış Fiyatı</label>
+    @Html.TextBoxFor(m => m.AlisFiyati, new {@class="form-control"})
+    <br />
+    
+    <label>Satış Fiyatı</label>
+    @Html.TextBoxFor(m => m.SatisFiyati, new {@class="form-control"})
+    <br />
+
+    <label>Kategori</label>
+    @Html.DropDownListFor(m => m.Kategori.KategoriID, (List<SelectListItem>)ViewBag.drop1, new {@class="form-control"})
+    <br />
+
+    <button class="btn btn-warning">Ekle</button>
+</form>
+
+

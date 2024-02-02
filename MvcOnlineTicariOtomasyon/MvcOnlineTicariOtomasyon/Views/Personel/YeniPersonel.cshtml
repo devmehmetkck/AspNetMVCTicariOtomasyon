@@ -1,0 +1,25 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Personel
+@{
+    ViewBag.Title = "YeniPersonel";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>YeniPersonel</h2>
+
+<form method="post" class="form form-group">
+    <label>Personel Ad</label>
+    <br />
+    @Html.TextBoxFor(m => m.PersonelAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PersonelAd, "", new { @style = "color:red" })
+    <br />
+    <label>Personel Soyad</label>
+    <br />
+    @Html.TextBoxFor(m => m.PersonelSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PersonelSoyad, "", new { @style = "color:red" })
+    <br />
+    <label>Personel Departman</label>
+    <br />
+    @Html.DropDownListFor(m => m.Departman.DepartmanID, (List<SelectListItem>)ViewBag.dDepart, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Ekle</button>
+</form>

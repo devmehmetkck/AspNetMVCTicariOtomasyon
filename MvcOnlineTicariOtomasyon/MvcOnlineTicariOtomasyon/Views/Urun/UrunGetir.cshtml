@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Urun
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    <label>Ürün Ad</label>
+    @Html.TextBoxFor(m => m.UrunAd, new {@class="form-control"})
+    <br />
+    <label>Marka</label>
+    @Html.TextBoxFor(m => m.Marka, new {@class="form-control"})
+    <br />
+    <label>Stok</label>
+    @Html.TextBoxFor(m => m.Stok, new {@class="form-control"})
+    <br />
+    <label>Alış Fiyatı</label>
+    @Html.TextBoxFor(m => m.AlisFiyati, new {@class="form-control"})
+    <br />
+    <label>Satış Fiyatı</label>
+    @Html.TextBoxFor(m => m.SatisFiyati, new {@class="form-control"})
+    <br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(m => m.Kategori.KategoriID, (List<SelectListItem>)ViewBag.deger, new {@class="form-control"})
+
+    @Html.HiddenFor(m=>m.UrunID)
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+

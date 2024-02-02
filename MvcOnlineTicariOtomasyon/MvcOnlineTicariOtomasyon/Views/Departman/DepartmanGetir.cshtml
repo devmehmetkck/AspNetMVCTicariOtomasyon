@@ -1,0 +1,22 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Departman
+@{
+    ViewBag.Title = "DepartmanGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Güncelle</li>
+</ol>
+
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+    <label>Departman Ad</label>
+    <br />
+    @Html.TextBoxFor(m => m.DepartmanAd, new { @class = "form-control" })
+    
+    @Html.HiddenFor(m=>m.DepartmanID)
+    <br />
+    <button>Güncelle</button>
+
+}
+

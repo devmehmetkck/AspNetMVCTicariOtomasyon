@@ -1,0 +1,44 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Menü </li>
+</ol>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Personel ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Departman</th>
+        <th>Satış Adet</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.PersonelID</td>
+            <td>@x.PersonelAd</td>
+            <td>@x.PersonelSoyad</td>
+            <td>@x.Departman.DepartmanAd</td>
+            <td>@x.SatisAdet</td>
+
+            @if (x.Departman.DepartmanAd == "Satış Temsilcisi")
+            {
+                <td> <a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a> <a href="/Personel/PersonelGoster/@x.PersonelID" class="btn btn-warning">Güncelle</a> <a href="/Departman/DepartmanPersonelSatis/@x.PersonelID" style="background-color:#00ffff" class="btn btn-chose">Satışlar</a></td>
+            }
+            @if(x.Departman.DepartmanAd!="Satış Temsilcisi")
+            {
+                <td><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a> <a href="/Personel/PersonelGoster/@x.PersonelID" class="btn btn-warning">Güncelle</a></td>
+            }
+
+        </tr>
+    }
+</table>
+<a href="/Personel/YeniPersonel/" class="btn btn-group" style="background-color:burlywood">Yeni Personel Kaydı</a>

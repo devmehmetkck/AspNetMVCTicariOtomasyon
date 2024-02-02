@@ -1,0 +1,31 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SatisHareket
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>YeniSatis</h2>
+
+<form class="form form-group" method="post">
+    
+    <label>Personel</label>
+    <br />
+    @Html.DropDownListFor(m=>m.Personel.PersonelID,(List<SelectListItem>)ViewBag.personel,new {@class="form-control"})
+    <br />
+    
+    <label>Cari</label>
+    <br />
+    @Html.DropDownListFor(m=>m.Cari.CariID,(List<SelectListItem>)ViewBag.cari,new {@class="form-control"})
+    <br />
+    
+    <label>Urun</label>
+    <br />
+    @Html.DropDownListFor(m=>m.Urun.UrunID,(List<SelectListItem>)ViewBag.Urun,new {@class="form-control"})
+    <br />
+    <label>Adet</label>
+    <input type="number" name="Adet"  class="form-control"/>
+    <br />
+    <input type="date" class="form-control" name="Tarih" value="2024-09-09"/>
+    <br />
+    <button class="btn btn-success">Ekle</button>
+</form>

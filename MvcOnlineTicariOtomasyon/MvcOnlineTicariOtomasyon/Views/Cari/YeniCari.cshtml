@@ -1,0 +1,25 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Cari
+@{
+    ViewBag.Title = "YeniCari";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cari Ekleme </li>
+</ol>
+
+<form method="post" class="form form-group">
+    <label>Cari Ad</label>
+    @Html.TextBoxFor(m => m.CariAd, new {@class="form-control"})
+    <br />
+    <label>Cari Soyad</label>
+    @Html.TextBoxFor(m => m.CariSoyad, new {@class="form-control"})
+    <br />
+    <label>Cari Şehir</label>
+    @Html.TextBoxFor(m => m.Sehir, new {@class="form-control"})
+    <br />
+    <label>Cari Email</label>
+    @Html.TextBoxFor(m => m.Mail, new {@class="form-control"})
+    <br />
+    <button class="btn btn-warning">Ekle</button>
+</form>

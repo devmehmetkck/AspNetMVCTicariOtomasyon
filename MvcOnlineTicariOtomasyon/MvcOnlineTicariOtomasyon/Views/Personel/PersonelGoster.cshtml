@@ -1,0 +1,27 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Personel
+@{
+    ViewBag.Title = "PersonelGoster";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Personel", FormMethod.Post))
+{
+    <label>Personel Ad</label>
+    <br />
+    @Html.TextBoxFor(m => m.PersonelAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PersonelAd, "", new { @style = "color:red" })
+    <br />
+    <label>Personel Soyad</label>
+    <br />
+    @Html.TextBoxFor(m => m.PersonelSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PersonelSoyad, "Soyad Boş Bırakılamaz", new { @style = "color:red" })
+    <br />
+    <label>Personel Departman</label>
+    <br />
+    @Html.DropDownListFor(m => m.Departman.DepartmanID, (List<SelectListItem>)ViewBag.gndep, new { @class = "form-control" })
+
+    @Html.HiddenFor(m => m.PersonelID)
+    <br />
+    <button class="btn btn-group" style="background-color:aquamarine">Güncelle</button>
+}
+

@@ -1,0 +1,43 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2 style="background-color: #8ffff5; text-align:center">Faturalar</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Fatura ID</th>
+            <th>Seri No</th>
+            <th>Sıra No</th>
+            <th>Vergi Dairesi</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Teslim Alan</th>
+            <th>Teslim Eden</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.FaturaID</td>
+                <td>@x.FaturaSeriNo</td>
+                <td>@x.FaturaSiraNo</td>
+                <td>@x.VergiDairesi</td>
+                <td>@x.FaturaTarih</td>
+                <td>@x.FaturaSaat</td>
+                <td>@x.TeslimAlan</td>
+                <td>@x.TeslimEden</td>
+                <td>@x.Toplam</td>
+                
+            </tr>
+        }
+    </tbody>
+
+</table>
+

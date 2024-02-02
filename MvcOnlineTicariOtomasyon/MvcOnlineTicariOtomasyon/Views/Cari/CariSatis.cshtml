@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "CariSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>CariSatis</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cari: @ViewBag.dcari </li>
+</ol>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam Tutar</th>
+        <th>Personel</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatisID</td>
+            <td>@item.Urun.UrunAd</td>
+            <td>@item.Adet</td>
+            <td>@item.Fiyat</td>
+            <td>@item.ToplamTutar</td>
+            <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+            <td>@item.Tarih.ToLongDateString()</td>
+        </tr>
+    }
+    <tr>
+    </tr>
+</table>
+

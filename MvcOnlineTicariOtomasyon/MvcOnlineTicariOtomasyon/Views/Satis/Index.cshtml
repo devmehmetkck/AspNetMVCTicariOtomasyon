@@ -1,0 +1,58 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2 style="background-color: #8ffff5; text-align:center;">Satış Menü</h2>
+
+<table id="tbl2" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Personel</th>
+            <th>Cari</th>
+            <th>Urun</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam Tutar</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SatisID</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Adet</td>
+                <td>@item.Fiyat</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih.ToLongDateString()</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<a href="/Satis/YeniSatis" class="btn btn-info">Yeni Satış Ekle</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+@*<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>*@
+@*<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>*@
+<script src="~/Web/talbes2.js"></script>
+<script src="~/Web/tables.js"></script>
+
+
+<script>
+    $('#tbl2').dataTable({});
+</script>
+

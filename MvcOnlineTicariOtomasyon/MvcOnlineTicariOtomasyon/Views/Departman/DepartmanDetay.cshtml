@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Detay (@ViewBag.d) </li>
+</ol>
+
+<table class="table table-secondary">
+    <tr>
+        <th>Personel ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        @if (Model.Select(x => x.Departman.DepartmanAd == "Satış Temsilcisi").FirstOrDefault())
+        {
+            <th>Satışlar</th>
+        }
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PersonelID</td>
+                <td>@item.PersonelAd</td>
+                <td>@item.PersonelSoyad</td>
+                @if (Model.Select(x => x.Departman.DepartmanAd == "Satış Temsilcisi").FirstOrDefault())
+                {
+                    <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-close-white" style="background-color:lightskyblue;color:black">Satışlar</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.Select(x => x.Departman.DepartmanID == 1).FirstOrDefault())
+ {
+    <h3 style="background-color:lightslategrey; color:#ffda75; text-align:center; font-size:x-large"  class="form-control">Toplam Satış: @ViewBag.satisadet</h3>
+ }
